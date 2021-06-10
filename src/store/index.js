@@ -19,9 +19,9 @@ export default createStore({
     }
   },
   actions: {
-    getValores({commit}) {
+    async getValores({commit}) {
       const valores = []
-      db.collection('valores').get()
+      await db.collection('valores').get()
       .then(res => {
         res.forEach(doc => {
           //console.log(doc.id);
