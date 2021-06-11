@@ -17,7 +17,7 @@ export default {
   data() {
     return {
       images: [
-        "https://i.ibb.co/hftMxkJ/prueba.jpg",
+        "https://i.ibb.co/qBdV9wt/granpozo.png",
         "https://i.ibb.co/CVMDB0B/Pozo-de-la-suerte.jpg"
       ],
       timer: null,
@@ -28,6 +28,7 @@ export default {
 
   created() {
     this.getValores();
+    //this.actualizarDatos();
   },
 
   mounted: function() {
@@ -44,7 +45,7 @@ export default {
       this.timerText = setInterval(10000);
     },
 
-    ...mapActions(["getValores"]),
+    ...mapActions(['getValores', 'actualizarDatos']),
 
     next: function() {
       this.currentIndex += 1;
@@ -59,7 +60,7 @@ export default {
       return this.images[Math.abs(this.currentIndex) % this.images.length];
     },
 
-    ...mapState(["valores"]),
+    ...mapState(['valores']),
 
     currentValores: function() {
       return this.valores[Math.abs(this.currentIndex) % this.valores.length];
@@ -138,5 +139,13 @@ img {
     font-family: 'Gloom';
     font-weight: normal;
     font-style: normal;
+}
+@font-face {
+    font-family: 'Gloom';
+    src: url('../assets/fonts/Gloom/Gloom-Regular.woff2') format('woff2'),
+        url('../assets/fonts/Gloom/Gloom-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
 </style>

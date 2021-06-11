@@ -1,6 +1,7 @@
 import { createStore } from 'vuex'
 import {db} from '../firebase'
 import router from '../router'
+import { tsConstructorType } from '@babel/types';
 
 export default createStore({
   state: {
@@ -63,6 +64,9 @@ export default createStore({
         console.log('tarea eliminada')
         commit('setEliminarValor', idValor)
       })
+    },
+    actualizarDatos(){
+      location.reload();
     }
   },
   modules: {

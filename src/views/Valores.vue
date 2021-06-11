@@ -4,7 +4,7 @@
     <router-link to="/agregar" v-if="valores.length < 2">
       <button class="btn btn-success btn-md">Agregar</button>
     </router-link>
-    <button class="btn btn-success btn-md" @click="reloadInicio()">Actualizar</button>
+    <button class="btn btn-success btn-md" @click="actualizarDatos()">Actualizar</button>
     <ul class="list-group mt-5">
       <li v-for="(item, index) in valores" :key="index" class="list-group-item">
         Valor de la imagen - {{item.valor}}
@@ -32,10 +32,7 @@ export default {
     await this.getValores();
   },
   methods: {
-    ...mapActions(["getValores", "eliminarValor"]),
-    reloadInicio() {
-      window.location.reload(this.newTabUrl)
-    },
+    ...mapActions(["getValores", "eliminarValor", 'actualizarDatos']),
     openNewTab(){
         this.childWindow = window.open(this.newTabUrl);
     },
